@@ -7,8 +7,9 @@
 		"ts:dev": "ts-node ./src/index.ts",
 		"dev:build": "tsc -w",
 		"dev:start": "nodemon node ./build/index.js",
-		"dev": "concurrently yarn:dev:*",
-		"build": "tsc"
+		"dev": "tsc && concurrently yarn:dev:*",
+		"build": "tsc",
+		"test": "ts-node ./src/decorator.ts"
 	},
 	"nodemonConfig": {
 		"ignore": [
