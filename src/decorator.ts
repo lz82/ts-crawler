@@ -62,7 +62,6 @@ class Person {
 		this.name = name;
 	}
 
-	@decoratorProperty
 	gender: string = 'man';
 
 	@decoratorMethod
