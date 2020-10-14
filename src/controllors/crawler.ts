@@ -16,7 +16,7 @@ interface BodyRequest extends Request {
 	};
 }
 
-@controller
+@controller('/data')
 class CrawlerController {
 	@get('/getData')
 	@use(checkLogin)

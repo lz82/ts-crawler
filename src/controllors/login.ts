@@ -9,7 +9,7 @@ interface BodyRequest extends Request {
 	};
 }
 
-@controller
+@controller('/')
 class LoginController {
 	@get('/')
 	home(req: Request, res: Response) {
