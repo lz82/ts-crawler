@@ -2,3 +2,4 @@
 // todo: 以编程的方式实现
 
 import './login';
+import './crawler';

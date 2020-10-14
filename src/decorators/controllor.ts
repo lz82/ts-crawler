@@ -1,3 +1,4 @@
+import { RequestHandler } from 'express';
 import { RequestMethod } from '../utils/types';
 
 import router from '../router/index';
@@ -10,9 +11,14 @@ export function controller(target: any) {
 	for (let key in target.prototype) {
 		const path = Reflect.getMetadata('path', target.prototype, key);
 		const method: RequestMethod = Reflect.getMetadata('method', target.prototype, key);
+		const middleware: RequestHandler[] | undefined = Reflect.getMetadata('middleware', target.prototype, key);
+		// path存在则说明设置了router,添加对应的路由
 		if (path && method) {
-			// path存在则说明设置了router,添加对应的路由
-			router[method](path, target.prototype[key]);
+			if (middleware && middleware.length) {
+				router[method](path, ...middleware, target.prototype[key]);
+			} else {
+				router[method](path, target.prototype[key]);
+			}
 		}
 	}
 }

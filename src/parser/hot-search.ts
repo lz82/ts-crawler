@@ -65,7 +65,6 @@ export default class WeiboHotSearchParser {
 		const newContent = {
 			[key]: newsList,
 		};
-
 		this.exportData(newContent);
 	}
 }

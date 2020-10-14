@@ -12,10 +12,10 @@ export function getSuccess(data: any, msg?: string): IResult {
 	};
 }
 
-export function getFail(data: any, msg: string): IResult {
+export function getFail(msg: string, data?: any): IResult {
 	return {
 		success: false,
-		data: data,
+		data: data ? data : null,
 		msg: msg,
 	};
 }

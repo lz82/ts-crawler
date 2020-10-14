@@ -1,4 +1,4 @@
-import Crawler from './crawler';
+import Crawler from './utils/crawler';
 
 import WeiboHotSearchParser from './parser/hot-search';
 
